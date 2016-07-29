@@ -12,5 +12,13 @@ namespace Engine
 		{
 			return cx::fnv1(String);
 		}
+
+		struct HashFunction
+		{
+			HashValue operator()(const char* Key)
+			{
+				return GetHashedString(Key);
+			}
+		};
 	}
 }

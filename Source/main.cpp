@@ -5,6 +5,8 @@
 
 #include "Engine.h"
 
+#include "Memory\PackedObjectPool.h"
+
 using namespace Engine;
 using Logger = Utility::Logger;
 
@@ -53,6 +55,39 @@ int main(int argc, char* argv[])
 	bool ConsoleOpen = false;
 
 	ImGui_ImplSdl_Init(InternalWindow);
+
+
+	Memory::PackedObjectPool<int> TestPool;
+	TestPool.Allocate(4);
+
+	auto ValueOne = TestPool.Create();
+	auto ValueData = ValueOne.GetData();
+	if (ValueData != nullptr)
+	{
+		*ValueData = 1;
+	}
+
+	auto ValueTwo = TestPool.Create();
+	ValueData = ValueTwo.GetData();
+	if (ValueData != nullptr)
+	{
+		*ValueData = 2;
+	}
+
+	auto ValueThree = TestPool.Create();
+	ValueData = ValueThree.GetData();
+	if (ValueData != nullptr)
+	{
+		*ValueData = 3;
+	}
+
+	TestPool.Free(ValueTwo);
+
+	for (auto i : TestPool)
+	{
+		Logger::Debug(Utility::ToString(i));
+	}
+
 
 	GLenum GLError = GL_NO_ERROR;
 

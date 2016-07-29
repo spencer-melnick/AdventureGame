@@ -4,8 +4,10 @@ SDL_image initialization suceeded
 Window "AdventureGame" created
 OpenGL context created
 Running OpenGL version 4.5.0 NVIDIA 364.72
-"Resource/testguy.jpg" was not previously loaded, attempting to load the resource from the filesystem
-Warning: Failed to load "Resource/testguy.jpg" - SDL_image error: Couldn't open Resource/testguy.jpg
-Warning: Failed to load resource "Resource/testguy.jpg"
+"Resource/testguy.png" was not previously loaded, attempting to load the resource from the filesystem
+"Resource/testguy.png" was loaded as a texture
+1
+3
+Texture data was dumped
 Destroying window  "AdventureGame"
 Quitting video subsystems
